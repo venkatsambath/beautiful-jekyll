@@ -14,7 +14,7 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-title: Venkat
+title: Venkat Sambath
 
 # Short description of your site
 description: A virtual proof that name is awesome!
@@ -36,7 +36,7 @@ avatar: "/img/avatar-icon.png"
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
-  name: Venkat
+  name: Venkataramanasam Sambath
   email: "svenkataramanasam@cloudera.com"
   github: venkatsambath    # eg. daattali
   twitter: venkatsambath   # eg. daattali
