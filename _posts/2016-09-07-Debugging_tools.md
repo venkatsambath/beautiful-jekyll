@@ -5,6 +5,7 @@ title: Debugging tools
 
 Dstat -- Stat on cpu/disk/network/memory/contextswitch -- Best is I get the time as well
   
+
 dstat -t -cdngy
 ----system---- ----total-cpu-usage---- -dsk/total- -net/total- ---paging-- ---system--
   date/time   |usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw 
