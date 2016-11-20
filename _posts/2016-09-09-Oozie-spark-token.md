@@ -1,6 +1,6 @@
 Spark requires HMS connection
-    
-    When you are executing a query on spark such as select * from <table>, it does have to contact with HMS to know the table location and other metadata. Without connecting to HMS its not possible for spark to execute the query. For it to authenticate itself to HMS it definitely needs to have either user credentials or a delegation token that oozie has obtained for the workflow. When you mention <action name="hive2-create-target-tables" cred="hs2-creds"> it indicates that the action is going to contact the hs2 service with the hs2-creds that oozie has obtained for the workflow. It doesn't mean that a shell action cant use the "hs2-creds" credentials. If the shell action has the requirement of contacting hs2 you must mention the respective creds it has to use in its action attribute. 
+
+    > When you are executing a query on spark such as select * from <table>, it does have to contact with HMS to know the table location and other metadata. Without connecting to HMS its not possible for spark to execute the query. For it to authenticate itself to HMS it definitely needs to have either user credentials or a delegation token that oozie has obtained for the workflow. When you mention <action name="hive2-create-target-tables" cred="hs2-creds"> it indicates that the action is going to contact the hs2 service with the hs2-creds that oozie has obtained for the workflow. It doesn't mean that a shell action cant use the "hs2-creds" credentials. If the shell action has the requirement of contacting hs2 you must mention the respective creds it has to use in its action attribute.
 
 Without oozie the default behaviour of spark is mentioned in the below link:
     
