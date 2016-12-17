@@ -18,9 +18,6 @@ Lets see an example:
 
 What goes behind a tgt request?
 
-
-
-
 [root@nightly59-1 ~]# kinit venkat
 [19513] 1481954811.39817: Getting initial credentials for venkat@GCE.CLOUDERA.COM
 [19513] 1481954811.40349: Sending request (217 bytes) to GCE.CLOUDERA.COM
@@ -120,4 +117,34 @@ Ans: Since des3-cbc-sha1 comes first in the order - it is assigned first
 
 aes256-cts-hmac-sha1-96 aes128-cts-hmac-sha1-96 des3-cbc-sha1 arcfour-hmac-md5 camellia256-cts-cmac camellia128-cts-cmac des-cbc-crc des-cbc-md5 des-cbc-md4
 
+=====
+
+How my ticked obtained service ticket to impala
+
+[8180] 1481958730.123212: ccselect module realm chose cache FILE:/tmp/krb5cc_0 with client principal venkat@GCE.CLOUDERA.COM for server principal impala/nightly59-3.gce.cloudera.com@GCE.CLOUDERA.COM
+[8180] 1481958730.123292: Retrieving venkat@GCE.CLOUDERA.COM -> krb5_ccache_conf_data/proxy_impersonator@X-CACHECONF: from FILE:/tmp/krb5cc_0 with result: -1765328243/Matching credential not found
+[8180] 1481958730.123332: Getting credentials venkat@GCE.CLOUDERA.COM -> impala/nightly59-3.gce.cloudera.com@GCE.CLOUDERA.COM using ccache FILE:/tmp/krb5cc_0
+[8180] 1481958730.123395: Retrieving venkat@GCE.CLOUDERA.COM -> impala/nightly59-3.gce.cloudera.com@GCE.CLOUDERA.COM from FILE:/tmp/krb5cc_0 with result: -1765328243/Matching credential not found
+[8180] 1481958730.123442: Retrieving venkat@GCE.CLOUDERA.COM -> krbtgt/GCE.CLOUDERA.COM@GCE.CLOUDERA.COM from FILE:/tmp/krb5cc_0 with result: 0/Success
+[8180] 1481958730.123451: Found cached TGT for service realm: venkat@GCE.CLOUDERA.COM -> krbtgt/GCE.CLOUDERA.COM@GCE.CLOUDERA.COM
+[8180] 1481958730.123458: Requesting tickets for impala/nightly59-3.gce.cloudera.com@GCE.CLOUDERA.COM, referrals on
+[8180] 1481958730.123526: Generated subkey for TGS request: des3-cbc-sha1/06A1
+[8180] 1481958730.123541: etypes requested in TGS request: aes256-cts, aes128-cts, des3-cbc-sha1, rc4-hmac, des-cbc-crc, des, des-cbc-md4
+[8180] 1481958730.123704: Sending request (767 bytes) to GCE.CLOUDERA.COM
+[8180] 1481958730.123786: Resolving hostname nightly59-1.gce.cloudera.com
+[8180] 1481958730.123843: Sending initial UDP request to dgram 172.31.112.11:88
+[8180] 1481958730.124503: Received answer from dgram 172.31.112.11:88
+[8180] 1481958730.124524: Response was not from master KDC
+[8180] 1481958730.124621: TGS reply is for venkat@GCE.CLOUDERA.COM -> impala/nightly59-3.gce.cloudera.com@GCE.CLOUDERA.COM with session key des3-cbc-sha1/3704
+[8180] 1481958730.124642: TGS request result: 0/Success
+[8180] 1481958730.124647: Received creds for desired service impala/nightly59-3.gce.cloudera.com@GCE.CLOUDERA.COM
+[8180] 1481958730.124656: Removing venkat@GCE.CLOUDERA.COM -> impala/nightly59-3.gce.cloudera.com@GCE.CLOUDERA.COM from FILE:/tmp/krb5cc_0
+[8180] 1481958730.124664: Storing venkat@GCE.CLOUDERA.COM -> impala/nightly59-3.gce.cloudera.com@GCE.CLOUDERA.COM in FILE:/tmp/krb5cc_0
+[8180] 1481958730.124968: Creating authenticator for venkat@GCE.CLOUDERA.COM -> impala/nightly59-3.gce.cloudera.com@GCE.CLOUDERA.COM, seqnum 711411199, subkey des3-cbc-sha1/EC20, session key des3-cbc-sha1/3704
+[8180] 1481958730.124980: Negotiating for enctypes in authenticator: aes256-cts, aes128-cts, des3-cbc-sha1, rc4-hmac, des-cbc-crc, des, des-cbc-md4
+[8180] 1481958730.172261: ccselect module realm chose cache FILE:/tmp/krb5cc_0 with client principal venkat@GCE.CLOUDERA.COM for server principal impala/nightly59-3.gce.cloudera.com@GCE.CLOUDERA.COM
+[8180] 1481958730.172329: Retrieving venkat@GCE.CLOUDERA.COM -> krb5_ccache_conf_data/proxy_impersonator@X-CACHECONF: from FILE:/tmp/krb5cc_0 with result: -1765328243/Matching credential not found
+[8180] 1481958730.172407: Read AP-REP, time 1481958730.124988, subkey aes256-cts/971D, seqnum 402400947
+
+================
 
